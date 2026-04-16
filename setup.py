@@ -51,7 +51,7 @@ def get_platform():
     Returns the platform name as used in wheel filenames.
     """
     if sys.platform.startswith("linux"):
-        return "linux_x86_64"
+        return f"linux_{platform.machine()}"
     elif sys.platform == "darwin":
         mac_version = ".".join(platform.mac_ver()[0].split(".")[:2])
         return f"macosx_{mac_version}_x86_64"
@@ -183,6 +183,8 @@ if not SKIP_CUDA_BUILD:
             cc_flag.append("-gencode")
             cc_flag.append("arch=compute_90,code=sm_90")
         if bare_metal_version >= Version("12.8"):
+            cc_flag.append("-gencode")
+            cc_flag.append("arch=compute_90a,code=sm_90a")
             cc_flag.append("-gencode")
             cc_flag.append("arch=compute_100,code=sm_100")
             cc_flag.append("-gencode")
