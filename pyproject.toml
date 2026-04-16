@@ -2,5 +2,13 @@
 requires = ["setuptools", "wheel", "ninja", "packaging"]
 build-backend = "setuptools.build_meta"
 
+[project]
+name = "causal-conv1d"
+version = "1.6.1"
+description = "Causal depthwise conv1d in CUDA, with a PyTorch interface"
+dependencies = [
+    "torch",
+]
+
 [tool.uv.extra-build-dependencies]
 causal-conv1d = [{ requirement = "torch", match-runtime = true }]
