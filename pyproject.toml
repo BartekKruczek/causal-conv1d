@@ -6,6 +6,9 @@ build-backend = "setuptools.build_meta"
 name = "causal-conv1d"
 version = "1.6.1"
 description = "Causal depthwise conv1d in CUDA, with a PyTorch interface"
+readme = "README.md"
+requires-python = ">=3.11"
+license-files = ["LICENSE"]
 dependencies = [
     "torch",
 ]
